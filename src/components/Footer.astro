@@ -1,0 +1,97 @@
+---
+import { SITE, NAV, COMPLIANCE } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <!-- Navy band -->
+  <div class="bg-navy text-white">
+    <div class="container-page grid gap-10 py-14 md:grid-cols-3">
+      <!-- Brand + address -->
+      <div>
+        <!-- Reversed lockup inlined onto the navy field so it sits flush and
+             the wordmark renders in Cinzel/Montserrat (mirrors brennan-banner-navy.svg). -->
+        <svg
+          class="h-[64px] w-auto"
+          viewBox="0 0 460 140"
+          role="img"
+          aria-label={SITE.name}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>{SITE.name}</title>
+          <g transform="translate(10,18)">
+            <circle cx="52" cy="52" r="50" fill="none" stroke="#CBB067" stroke-width="2"></circle>
+            <circle cx="52" cy="52" r="39" fill="none" stroke="#a24354" stroke-width="1.4"></circle>
+            <polygon points="50,2 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35" fill="#CBB067" transform="translate(31,31) scale(0.42)"></polygon>
+          </g>
+          <g transform="translate(122,8)">
+            <text x="0" y="44" font-family="Montserrat, sans-serif" font-weight="600" font-size="14" letter-spacing="2" fill="#CBB067">LAW OFFICE OF MICHAEL J.</text>
+            <text x="0" y="92" font-family="Cinzel, serif" font-weight="600" font-size="50" letter-spacing="1" fill="#F4F4F4">BRENNAN</text>
+          </g>
+        </svg>
+
+        <p class="mt-6 font-display text-sm tracking-wide text-gold">{SITE.tagline}</p>
+
+        <address class="mt-4 not-italic text-sm leading-relaxed text-white/85">
+          {SITE.address.street}<br />
+          {SITE.address.city}, {SITE.address.region} {SITE.address.postalCode}<br />
+          <span class="text-white/70">By appointment</span>
+        </address>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h2 class="eyebrow !text-gold">Navigate</h2>
+        <span class="gold-rule mt-3 mb-5"></span>
+        <ul class="space-y-3">
+          {
+            NAV.map((item) => (
+              <li>
+                <a href={item.href} class="text-sm text-white/85 transition-colors hover:text-gold">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h2 class="eyebrow !text-gold">Contact</h2>
+        <span class="gold-rule mt-3 mb-5"></span>
+        <ul class="space-y-3 text-sm text-white/85">
+          <li>
+            <a href={`tel:${SITE.phoneHref}`} class="transition-colors hover:text-gold">
+              {SITE.phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${SITE.email}`} class="transition-colors hover:text-gold">
+              {SITE.email}
+            </a>
+          </li>
+          <li class="text-white/70">{SITE.hours}</li>
+        </ul>
+        <a href="/contact" class="btn btn-on-dark mt-6 text-sm">Free Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compliance band (charcoal on light — conspicuous, ≥14px, never hidden) -->
+  <div class="border-t-2 border-gold bg-warmgrey">
+    <div class="container-page py-10">
+      <div class="space-y-3 text-[14px] leading-relaxed text-charcoal">
+        <p>{COMPLIANCE.responsible}</p>
+        <p>{COMPLIANCE.licensed}</p>
+        <p>{COMPLIANCE.notLegalAdvice}</p>
+        <p>{COMPLIANCE.contingencyCosts}</p>
+        <p>{COMPLIANCE.pastResults}</p>
+      </div>
+      <p class="mt-6 text-[14px] text-charcoal/80">
+        &copy; {year}, {SITE.name}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

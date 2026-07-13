@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(sw_vers)",
+      "Bash(curl -sI --max-time 15 https://nodejs.org/dist/index.json)"
+    ]
+  }
+}

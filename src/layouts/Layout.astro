@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+
+// Fonts (self-hosted via @fontsource — no external requests, good for Lighthouse).
+import '@fontsource/cinzel/500.css';
+import '@fontsource/cinzel/600.css';
+import '@fontsource/cinzel/700.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path only, e.g. "/about". Used for the canonical URL. */
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+
+const canonical = new URL(path, SITE.url).href;
+const ogImage = new URL('/assets/og-image.png', SITE.url).href;
+
+// JSON-LD — LegalService / Attorney structured data.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['LegalService', 'Attorney'],
+  name: SITE.name,
+  url: SITE.url,
+  image: ogImage,
+  telephone: SITE.phone,
+  founder: {
+    '@type': 'Person',
+    name: SITE.attorney,
+    jobTitle: 'Attorney',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Fort Bend County, Texas' },
+    { '@type': 'AdministrativeArea', name: 'Greater Houston, Texas' },
+  ],
+  knowsAbout: [
+    'Personal Injury',
+    'Wrongful Death',
+    'Estate Planning',
+    'Civil Litigation',
+    'Landlord-Tenant Law',
+    'Real Estate',
+  ],
+  priceRange: 'Free consultation',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Icons -->
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1B2A4A" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

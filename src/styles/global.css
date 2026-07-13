@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Brand system — Law Office of Michael J. Brennan, PLLC              */
+/*  Tokens are exposed to Tailwind v4 as bg-navy, text-burgundy, etc.  */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-navy: #1B2A4A;      /* primary */
+  --color-burgundy: #6E2639;  /* accent */
+  --color-gold: #CBB067;      /* champagne gold — rules/dividers/seal accents only */
+  --color-warmgrey: #E6E6E6;  /* section backgrounds */
+  --color-charcoal: #26262A;  /* body text */
+
+  /* Cinzel: wordmark, hero H1, small-caps eyebrows.
+     Montserrat: all other headings + body. */
+  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                              */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: #ffffff;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  /* Visible, high-contrast focus states for keyboard users. */
+  :focus-visible {
+    outline: 3px solid var(--color-burgundy);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reusable brand utilities                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  /* Cinzel display type for the wordmark, hero H1 and letterspaced eyebrows */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Small-caps letterspaced eyebrow (Cinzel) */
+  .eyebrow {
+    font-family: var(--font-display);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--color-burgundy);
+  }
+
+  /* Thin champagne-gold hairline divider */
+  .gold-rule {
+    display: block;
+    height: 2px;
+    width: 64px;
+    background-color: var(--color-gold);
+    border: 0;
+  }
+
+  .gold-rule--full {
+    width: 100%;
+    height: 1px;
+  }
+
+  /* Constrained content width */
+  .container-page {
+    width: 100%;
+    max-width: 72rem; /* 1152px */
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    border-radius: 3px;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, transform 120ms ease;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    background-color: var(--color-burgundy);
+    color: #ffffff;
+    border: 2px solid var(--color-burgundy);
+  }
+
+  .btn-primary:hover {
+    background-color: #571e2d;
+    border-color: #571e2d;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-navy);
+    color: #ffffff;
+  }
+
+  .btn-on-dark {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border: 2px solid var(--color-gold);
+  }
+
+  .btn-on-dark:hover {
+    background-color: transparent;
+    color: var(--color-gold);
+  }
+}
+
+/* Skip link — visible only on focus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-navy);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+}

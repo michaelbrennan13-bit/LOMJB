@@ -1,0 +1,124 @@
+---
+import { SITE, NAV } from '../consts';
+
+const current = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? current === '/' : current.startsWith(href);
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-warmgrey bg-white/95 backdrop-blur">
+  <div class="container-page flex items-center justify-between gap-4 py-3">
+    <!-- Logo (inline SVG so the wordmark renders in Cinzel/Montserrat) -->
+    <a href="/" class="flex shrink-0 items-center" aria-label={`${SITE.name} — home`}>
+      <svg
+        class="h-11 w-auto md:h-12"
+        viewBox="0 0 560 140"
+        role="img"
+        aria-label={SITE.name}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>{SITE.name}</title>
+        <g transform="translate(10,18)">
+          <circle cx="52" cy="52" r="50" fill="none" stroke="#6E2639" stroke-width="2"></circle>
+          <circle cx="52" cy="52" r="39" fill="none" stroke="#1B2A4A" stroke-width="1.4"></circle>
+          <polygon points="50,2 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35" fill="#6E2639" transform="translate(31,31) scale(0.42)"></polygon>
+        </g>
+        <g transform="translate(122,8)">
+          <text x="0" y="44" font-family="Montserrat, sans-serif" font-weight="600" font-size="14" letter-spacing="2" fill="#1B2A4A">LAW OFFICE OF MICHAEL J.</text>
+          <text x="0" y="92" font-family="Cinzel, serif" font-weight="600" font-size="50" letter-spacing="1" fill="#6E2639">BRENNAN</text>
+        </g>
+      </svg>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-600 font-semibold tracking-wide text-navy transition-colors hover:text-burgundy"
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            data-active={isActive(item.href) ? 'true' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Desktop actions -->
+    <div class="hidden items-center gap-4 lg:flex">
+      <a
+        href={`tel:${SITE.phoneHref}`}
+        class="text-sm font-semibold text-navy transition-colors hover:text-burgundy"
+      >
+        {SITE.phone}
+      </a>
+      <a href="/contact" class="btn btn-primary text-sm">Free Consultation</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="nav-toggle"
+      class="inline-flex items-center justify-center rounded p-2 text-navy lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <svg id="icon-open" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" class="hidden h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile nav panel -->
+  <nav
+    id="mobile-nav"
+    class="hidden border-t border-warmgrey bg-white lg:hidden"
+    aria-label="Mobile"
+  >
+    <div class="container-page flex flex-col gap-1 py-4">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class="rounded px-2 py-3 text-base font-semibold text-navy hover:bg-warmgrey"
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={`tel:${SITE.phoneHref}`} class="px-2 py-3 text-base font-semibold text-burgundy">
+        Call {SITE.phone}
+      </a>
+      <a href="/contact" class="btn btn-primary mt-2">Free Consultation</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  nav a[data-active='true'] {
+    color: var(--color-burgundy);
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 2px;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = panel?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    iconOpen?.classList.toggle('hidden', isOpen);
+    iconClose?.classList.toggle('hidden', !isOpen);
+  });
+</script>

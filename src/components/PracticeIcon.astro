@@ -1,0 +1,40 @@
+---
+import type { IconName } from '../data/practices';
+
+interface Props {
+  name: IconName;
+  class?: string;
+}
+const { name, class: className = 'h-9 w-9' } = Astro.props;
+
+// Gold-line (stroke) icons. Decorative — the card heading conveys meaning.
+const paths: Record<IconName, string> = {
+  // Car / collision
+  injury:
+    'M4 13l1.5-4.5A2 2 0 0 1 7.4 7h9.2a2 2 0 0 1 1.9 1.5L20 13m-16 0h16m-16 0v4h2m14-4v4h-2m-9 0h6M6.5 16.5h.01M17.5 16.5h.01',
+  // Heart / family loss
+  'wrongful-death':
+    'M12 20s-7-4.35-9.5-8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9.5 5.5C19 15.65 12 20 12 20z',
+  // Document / will
+  estate:
+    'M7 3h7l4 4v14H7V3zm7 0v4h4M9.5 12h5M9.5 15.5h5M9.5 8.5h2',
+  // Scales of justice / litigation
+  litigation:
+    'M12 3v18M7 21h10M5 7h14M8 7l-3 6a3 3 0 0 0 6 0l-3-6zm11 0l-3 6a3 3 0 0 0 6 0l-3-6zM12 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z',
+  // House / property
+  landlord: 'M4 11l8-6 8 6M6 10v10h12V10M10 20v-6h4v6',
+};
+---
+
+<svg
+  class={className}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#CBB067"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d={paths[name]} />
+</svg>

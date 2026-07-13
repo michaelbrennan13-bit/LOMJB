@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, COMPLIANCE } from '../consts';
+
+const title = 'Contact | Law Office of Michael J. Brennan, PLLC';
+const description =
+  'Contact the Law Office of Michael J. Brennan, PLLC. Free consultation for personal injury and general-practice matters in Fort Bend County and Greater Houston.';
+---
+
+<Layout title={title} description={description} path="/contact">
+  <section class="bg-white">
+    <div class="container-page py-16 md:py-20">
+      <p class="eyebrow">Contact</p>
+      <span class="gold-rule mt-4"></span>
+      <h1 class="mt-5 max-w-3xl text-4xl font-bold text-navy md:text-5xl">
+        Tell us what happened. We’ll tell you how we can help.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal/90">
+        Reach out for a free, confidential consultation. {SITE.tagline}
+      </p>
+
+      <div class="mt-12 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+        <!-- ============================ FORM ============================ -->
+        <div>
+          <form id="contact-form" class="space-y-6" novalidate>
+            <!-- Web3Forms access key — FILL in src/consts.ts -->
+            <input type="hidden" name="access_key" value={SITE.web3formsKey} />
+            <input
+              type="hidden"
+              name="subject"
+              value="New consultation request — mjbrennan.com"
+            />
+            <input type="hidden" name="from_name" value={SITE.name} />
+
+            <!-- Honeypot (hidden from humans; bots fill it) -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display:none"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <div>
+              <label for="name" class="block text-sm font-semibold text-navy">
+                Name <span class="text-burgundy">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                autocomplete="name"
+                class="mt-2 w-full rounded border border-warmgrey bg-white px-4 py-3 text-charcoal focus:border-navy focus:outline-none"
+              />
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="email" class="block text-sm font-semibold text-navy">
+                  Email <span class="text-burgundy">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  class="mt-2 w-full rounded border border-warmgrey bg-white px-4 py-3 text-charcoal focus:border-navy focus:outline-none"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-navy">
+                  Phone
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  class="mt-2 w-full rounded border border-warmgrey bg-white px-4 py-3 text-charcoal focus:border-navy focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold text-navy">
+                Brief description of your matter <span class="text-burgundy">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="mt-2 w-full rounded border border-warmgrey bg-white px-4 py-3 text-charcoal focus:border-navy focus:outline-none"
+              ></textarea>
+              <p class="mt-2 text-xs text-charcoal/70">
+                Please keep it general — do not include confidential details.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <input
+                id="consent"
+                name="consent"
+                type="checkbox"
+                required
+                value="I acknowledge the notice below"
+                class="mt-1 h-5 w-5 shrink-0 accent-[#6E2639]"
+              />
+              <label for="consent" class="text-sm leading-relaxed text-charcoal/90">
+                I understand that submitting this form does not create an
+                attorney-client relationship and that I should not include
+                confidential details. <span class="text-burgundy">*</span>
+              </label>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary w-full sm:w-auto">
+              Send message
+            </button>
+
+            <!-- Status messages (client-side) -->
+            <p
+              id="form-success"
+              class="hidden rounded border-l-4 border-gold bg-warmgrey/70 p-4 text-sm text-charcoal"
+              role="status"
+            >
+              Thank you — your message has been sent. We’ll be in touch soon.
+            </p>
+            <p
+              id="form-error"
+              class="hidden rounded border-l-4 border-burgundy bg-burgundy/5 p-4 text-sm text-burgundy"
+              role="alert"
+            >
+              Something went wrong. Please try again, or call {SITE.phone}.
+            </p>
+          </form>
+
+          <!-- Not-legal-advice notice near the form -->
+          <div class="mt-8 border-t border-warmgrey pt-6 text-[14px] leading-relaxed text-charcoal/85">
+            <p>{COMPLIANCE.notLegalAdvice}</p>
+          </div>
+        </div>
+
+        <!-- ========================== DETAILS ========================== -->
+        <aside class="space-y-8">
+          <div class="border-t-2 border-gold bg-warmgrey/50 p-7">
+            <h2 class="eyebrow text-burgundy">Reach the firm</h2>
+            <ul class="mt-5 space-y-4 text-[15px]">
+              <li>
+                <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Phone</span>
+                <a href={`tel:${SITE.phoneHref}`} class="text-navy hover:text-burgundy">{SITE.phone}</a>
+              </li>
+              <li>
+                <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Email</span>
+                <a href={`mailto:${SITE.email}`} class="text-navy hover:text-burgundy">{SITE.email}</a>
+              </li>
+              <li>
+                <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Office</span>
+                <span class="text-charcoal">Houston, TX — by appointment</span>
+              </li>
+              <li>
+                <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Service area</span>
+                <span class="text-charcoal">Fort Bend County &amp; Greater Houston</span>
+              </li>
+              <li>
+                <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Hours</span>
+                <span class="text-charcoal">{SITE.hours}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-1 text-sm text-charcoal/70">
+            <p>
+              The firm operates by appointment and does not maintain a walk-in
+              location. Please call or email to arrange a time.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successEl = document.getElementById('form-success');
+  const errorEl = document.getElementById('form-error');
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successEl?.classList.add('hidden');
+    errorEl?.classList.add('hidden');
+
+    // Native validation (required fields + consent checkbox)
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const originalText = btn?.textContent ?? 'Send message';
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        form.reset();
+        successEl?.classList.remove('hidden');
+        successEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        errorEl?.classList.remove('hidden');
+      }
+    } catch {
+      errorEl?.classList.remove('hidden');
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    }
+  });
+</script>

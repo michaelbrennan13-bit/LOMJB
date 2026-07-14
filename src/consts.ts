@@ -1,8 +1,7 @@
 /**
  * Site-wide constants for the Law Office of Michael J. Brennan, PLLC.
  *
- * ⚠️  Only the phone number is still a placeholder (marked "FILL:") — fill it
- *     before go-live. Everything else below is final.
+ * All site-wide values below are final.
  */
 
 export const SITE = {
@@ -11,10 +10,10 @@ export const SITE = {
   attorney: 'Michael J. Brennan',
   url: 'https://mjbrennan.com',
 
-  // FILL: firm phone number. Used in header, footer, hero, contact page, and tel: links.
-  phone: '(XXX) XXX-XXXX',
-  // Digits-only version for the tel: href. FILL to match `phone`.
-  phoneHref: '+1XXXXXXXXXX',
+  // Firm phone number. Used in header, footer, hero, contact page, and tel: links.
+  phone: '(832) 569-7566',
+  // Digits-only version for the tel: href.
+  phoneHref: '+18325697566',
 
   email: 'michael@mjbrennan.com',
 

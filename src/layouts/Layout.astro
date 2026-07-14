@@ -13,6 +13,7 @@ import '@fontsource/montserrat/700.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../consts';
+import { PRACTICES } from '../data/practices';
 
 interface Props {
   title: string;
@@ -51,14 +52,19 @@ const jsonLd = {
     { '@type': 'AdministrativeArea', name: 'Fort Bend County, Texas' },
     { '@type': 'AdministrativeArea', name: 'Greater Houston, Texas' },
   ],
-  knowsAbout: [
-    'Personal Injury',
-    'Wrongful Death',
-    'Estate Planning',
-    'Civil Litigation',
-    'Landlord-Tenant Law',
-    'Real Estate',
-  ],
+  knowsAbout: PRACTICES.map((p) => p.title),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Legal services',
+    itemListElement: PRACTICES.map((p) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: p.title,
+        url: new URL(`/practice-areas#${p.slug}`, SITE.url).href,
+      },
+    })),
+  },
   priceRange: 'Free consultation',
 };
 ---

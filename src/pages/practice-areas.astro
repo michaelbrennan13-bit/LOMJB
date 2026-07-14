@@ -6,7 +6,7 @@ import { PRACTICES } from '../data/practices';
 
 const title = 'Practice Areas | Law Office of Michael J. Brennan, PLLC';
 const description =
-  'Personal injury, wrongful death, estate planning, civil litigation, and landlord–tenant / real estate matters for Fort Bend County and Greater Houston.';
+  'A full-service Texas firm led by personal injury: injury, wrongful death, insurance disputes, business, contracts, family law, consumer & debt defense, estate planning, probate, civil litigation, and real estate. Fort Bend County & Greater Houston.';
 ---
 
 <Layout title={title} description={description} path="/practice-areas">
@@ -20,7 +20,8 @@ const description =
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal/90">
         Personal injury is the firm’s flagship practice. Alongside it, the firm
-        handles a focused set of general-practice matters — always with direct
+        is full-service — handling matters from insurance disputes and business
+        agreements to family law and estate planning, always with direct
         attorney access and a clear explanation of fees before you commit.
       </p>
     </div>
@@ -82,7 +83,21 @@ const description =
                 </div>
               )}
 
-              {!p.contingency && (
+              {p.contingencyOptional && (
+                <div class="mt-7 border-l-4 border-gold bg-warmgrey/60 p-6">
+                  <p class="font-semibold text-navy">
+                    Contingency or hourly — depending on your matter.
+                  </p>
+                  <p class="mt-3 text-sm leading-relaxed text-charcoal/90">
+                    {COMPLIANCE.contingencyOptionalNote}
+                  </p>
+                  <p class="mt-3 text-sm leading-relaxed text-charcoal/80">
+                    {COMPLIANCE.pastResults}
+                  </p>
+                </div>
+              )}
+
+              {!p.contingency && !p.contingencyOptional && (
                 <p class="mt-5 text-sm text-charcoal/70">
                   Consultations available. Fees are typically flat or hourly,
                   depending on the matter.

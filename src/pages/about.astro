@@ -4,7 +4,7 @@ import { SITE } from '../consts';
 
 const title = 'About Michael J. Brennan | Fort Bend & Houston Attorney';
 const description =
-  'Michael J. Brennan is a Texas attorney serving Fort Bend County and Greater Houston, focusing on personal injury and general-practice matters. Licensed in Texas, Bar No. 24125746.';
+  'Michael J. Brennan is a Houston-area attorney and former defense-side litigator who now represents plaintiffs, serving Fort Bend County and Greater Houston. Full-service practice led by personal injury. State Bar of Texas No. 24125746.';
 ---
 
 <Layout title={title} description={description} path="/about">
@@ -23,15 +23,21 @@ const description =
           <figure class="border border-warmgrey p-3">
             <div class="border-2 border-gold p-1">
               <img
-                src="/assets/headshot-placeholder.svg"
-                width="480"
-                height="600"
-                alt={`Portrait of ${SITE.attorney} (placeholder — professional photo to be added)`}
-                class="w-full"
+                src="/assets/headshot.jpg"
+                width="590"
+                height="590"
+                alt={`Portrait of ${SITE.attorney}, attorney and founder of ${SITE.name}`}
+                class="aspect-square w-full object-cover"
+                loading="eager"
               />
             </div>
-            <figcaption class="mt-3 text-center font-display text-sm tracking-wide text-burgundy">
-              {SITE.attorney}
+            <figcaption class="mt-3 text-center">
+              <span class="block font-display text-base tracking-wide text-burgundy">
+                {SITE.attorney}
+              </span>
+              <span class="mt-1 block text-xs uppercase tracking-[0.18em] text-charcoal/60">
+                Attorney &amp; Founder
+              </span>
             </figcaption>
           </figure>
         </div>
@@ -41,33 +47,42 @@ const description =
           <h2 class="text-2xl font-semibold text-navy">Biography</h2>
           <span class="gold-rule mt-3"></span>
 
-          <!-- PLACEHOLDER bio — replace bracketed blanks. Keep language compliant:
-               use "focuses on," "handles," "practices in" (never specialist/expert/
-               specializing/certified). -->
+          <!-- Bio drawn from the firm bio (Firm Bio.docx). Compliant wording:
+               "focuses on," "handles," "practices in" — never specialist/expert/
+               specializing/certified (README §5). -->
           <div class="mt-6 space-y-5 leading-relaxed text-charcoal/90">
             <p>
-              <span class="rounded bg-gold/20 px-1">[PLACEHOLDER]</span> Michael
-              J. Brennan is the founder of the Law Office of Michael J. Brennan,
-              PLLC, a Texas firm that focuses on personal injury and handles a
-              range of general-practice matters for individuals and families in
-              <strong>Fort Bend County and Greater Houston</strong>. He earned
-              his <span class="rounded bg-gold/20 px-1">[degree]</span> from
-              <span class="rounded bg-gold/20 px-1">[law school]</span> in
-              <span class="rounded bg-gold/20 px-1">[year]</span> and was
-              admitted to practice in Texas in
-              <span class="rounded bg-gold/20 px-1">[admission year]</span>.
+              For years, Michael J. Brennan represented corporate defendants in
+              complex personal injury and wrongful death cases — from
+              catastrophic industrial accidents along the Gulf Coast to motor
+              vehicle collisions in small East Texas towns. Today he channels
+              that defense-side experience into advocating for the individuals
+              and families who deserve justice.
             </p>
             <p>
-              <span class="rounded bg-gold/20 px-1">[PLACEHOLDER]</span> Before
-              founding the firm, Michael
-              <span class="rounded bg-gold/20 px-1"
-                >[background — prior roles, relevant experience; note experience
-                on both sides of the docket if accurate — confirm]</span
-              >. He practices in
-              <span class="rounded bg-gold/20 px-1"
-                >[areas of focus]</span
-              > and is committed to direct client communication, candid advice,
-              and straightforward fees.
+              Michael founded the <strong>Law Office of Michael J. Brennan,
+              PLLC</strong> to represent plaintiffs on his own terms, bringing
+              meticulous case strategy and a close reading of the facts to every
+              matter he takes on. As a solo practitioner serving
+              <strong>Fort Bend County and Greater Houston</strong>, he offers
+              clients direct, personal attention at every stage of their case,
+              and remains committed to pursuing strong outcomes on their behalf.
+            </p>
+            <p>
+              His time on the defense side gave him a practical understanding of
+              how corporations and their insurers approach litigation —
+              knowledge he now uses to anticipate their moves and build clear,
+              well-prepared cases for his clients. That background spans
+              high-stakes matters involving interstate trucking and commercial
+              fleets, oilfield and industrial workplace accidents, and premises
+              liability disputes.
+            </p>
+            <p>
+              Born and raised in the Houston area, Michael built his practice on
+              the values that matter most to him and his community:
+              <em>integrity, personal service, and relentless advocacy for his
+              clients</em>. Outside the office, he enjoys walking his dogs along
+              the Hershey Trails, golfing, and reading.
             </p>
           </div>
 
@@ -78,22 +93,38 @@ const description =
             <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr]">
               <dt class="font-semibold text-navy">Education</dt>
               <dd class="text-charcoal/90">
-                <span class="rounded bg-gold/20 px-1"
-                  >[ law school, degree, year ]</span
-                >
+                Baylor University (BBA)<br />
+                Texas A&amp;M University School of Law (JD)
               </dd>
             </div>
             <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr]">
-              <dt class="font-semibold text-navy">Admission</dt>
+              <dt class="font-semibold text-navy">Court admissions</dt>
               <dd class="text-charcoal/90">
-                Licensed in Texas — State Bar No. {SITE.barNumber}
+                All Texas state courts; U.S. District Courts for the Southern,
+                Eastern, and Western Districts of Texas.
+              </dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr]">
+              <dt class="font-semibold text-navy">Bar number</dt>
+              <dd class="text-charcoal/90">
+                State Bar of Texas No. {SITE.barNumber}
+              </dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr]">
+              <dt class="font-semibold text-navy">Memberships</dt>
+              <dd class="text-charcoal/90">
+                Houston Young Lawyers Association; Houston Trial Lawyers
+                Association; Texas Trial Lawyers Association (Lead Academy 2026).
               </dd>
             </div>
             <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[180px_1fr]">
               <dt class="font-semibold text-navy">Areas of focus</dt>
               <dd class="text-charcoal/90">
-                Personal injury, wrongful death, estate planning &amp; wills,
-                civil litigation, and landlord–tenant / real estate.
+                Personal injury and wrongful death, with a full-service practice
+                spanning insurance disputes, business &amp; commercial matters,
+                contracts, family law, consumer &amp; debt defense, estate
+                planning, probate &amp; guardianship, civil litigation, and
+                real estate.
               </dd>
             </div>
           </dl>

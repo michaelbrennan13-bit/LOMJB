@@ -1,8 +1,8 @@
 /**
  * Site-wide constants for the Law Office of Michael J. Brennan, PLLC.
  *
- * ⚠️  PLACEHOLDERS — edit the values marked "FILL:" before go-live.
- *     Every placeholder is also listed in README.md.
+ * ⚠️  Only the phone number is still a placeholder (marked "FILL:") — fill it
+ *     before go-live. Everything else below is final.
  */
 
 export const SITE = {
@@ -16,8 +16,7 @@ export const SITE = {
   // Digits-only version for the tel: href. FILL to match `phone`.
   phoneHref: '+1XXXXXXXXXX',
 
-  // FILL: contact email address (e.g., michael@mjbrennan.com).
-  email: 'CONTACT@mjbrennan.com',
+  email: 'michael@mjbrennan.com',
 
   // Office (virtual / by appointment — do not render a live map pin).
   address: {
@@ -30,13 +29,10 @@ export const SITE = {
 
   tagline: 'Serving Fort Bend County & Greater Houston.',
 
-  // FILL: office hours, e.g. "By appointment — Mon–Fri 9:00am–5:00pm".
-  hours: '[ FILL: office hours ]',
-
   barNumber: '24125746',
 
-  // FILL: Web3Forms access key from https://web3forms.com (free).
-  web3formsKey: '[WEB3FORMS_KEY]',
+  // Web3Forms access key (https://web3forms.com) — powers the contact form.
+  web3formsKey: 'ea9b5e51-61bc-4745-a3e9-4111a12d318f',
 } as const;
 
 /** Compliance / disclaimer strings — Texas Disciplinary Rules Part VII. */
@@ -47,7 +43,9 @@ export const COMPLIANCE = {
   notLegalAdvice:
     'This website is for general information only and is not legal advice. Contacting the firm or submitting the contact form does not create an attorney-client relationship; please do not send confidential information through it. Past results do not guarantee, warrant, or predict future outcomes.',
   contingencyCosts:
-    'Personal injury matters are handled on a contingency-fee basis: you pay no attorney’s fee unless we obtain a recovery for you. Clients may be responsible for court costs and case expenses. [Confirm whether costs are owed regardless of outcome and edit to match your fee agreement.]',
+    'Personal injury matters are handled on a contingency-fee basis: you pay no attorney’s fee unless we obtain a recovery for you. Clients may be responsible for court costs and case expenses.',
+  contingencyOptionalNote:
+    'Insurance disputes are handled on either a contingency-fee or hourly basis, depending on the matter. When handled on contingency, you pay no attorney’s fee unless we obtain a recovery; court costs and case expenses may still apply. The firm will confirm the fee arrangement in writing before any work begins.',
   pastResults:
     'Past results do not guarantee, warrant, or predict future outcomes.',
 } as const;

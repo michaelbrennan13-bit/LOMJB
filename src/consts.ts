@@ -48,6 +48,9 @@ export const COMPLIANCE = {
     'Insurance disputes are handled on either a contingency-fee or hourly basis, depending on the matter. When handled on contingency, you pay no attorney’s fee unless we obtain a recovery; court costs and case expenses may still apply. The firm will confirm the fee arrangement in writing before any work begins.',
   pastResults:
     'Past results do not guarantee, warrant, or predict future outcomes.',
+  // Condensed single-paragraph disclaimer shown in the site footer (every page).
+  footerCondensed:
+    'Michael J. Brennan is responsible for this website; principal office in Houston, Texas. Licensed in Texas, State Bar No. 24125746. This site is general information, not legal advice, and using it or submitting the contact form does not create an attorney-client relationship — please do not send confidential information. Personal injury matters are handled on a contingency-fee basis: no attorney’s fee unless we obtain a recovery, though clients may be responsible for court costs and case expenses. Past results do not guarantee, warrant, or predict future outcomes.',
 } as const;
 
 export const NAV = [

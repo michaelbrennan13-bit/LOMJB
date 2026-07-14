@@ -1,6 +1,6 @@
 /**
  * Practice areas — shared by the Home grid and the Practice Areas page.
- * Editable. The firm is full-service with Personal Injury as the flagship.
+ * Editable. The firm is full-service; Personal Injury leads the list.
  *
  * Fee messaging (Texas Disciplinary Rules Part VII, §5 of the README):
  *   - `contingency: true`         → the plain "no fee unless we obtain a
@@ -26,7 +26,6 @@ export interface Practice {
   contingency?: boolean;
   /** Contingency is available but not the only fee model (e.g. insurance). */
   contingencyOptional?: boolean;
-  flagship?: boolean;
 }
 
 export type IconName =
@@ -47,12 +46,11 @@ export const PRACTICES: Practice[] = [
     slug: 'personal-injury',
     title: 'Personal Injury',
     icon: 'injury',
-    flagship: true,
     contingency: true,
     blurb:
       'Car & truck collisions, 18-wheeler crashes, premises liability, and product injuries.',
     detail:
-      'The firm’s flagship practice. If you have been hurt because of someone else’s negligence, you deserve straightforward answers and a lawyer who handles your case directly. Having spent years defending corporations and insurers in serious injury cases, the firm now puts that same understanding to work for injured people — anticipating how the other side thinks while pursuing fair compensation for medical bills, lost income, and the disruption an injury causes.',
+      'If you have been hurt because of someone else’s negligence, you deserve straightforward answers and a lawyer who handles your case personally. The firm helps injured people and their families pursue fair compensation for medical bills, lost income, and the disruption an injury causes — and keeps you in the loop, in plain language, the whole way through.',
     points: [
       'Car and truck collisions',
       '18-wheeler and commercial fleet crashes',

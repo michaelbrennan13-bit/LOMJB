@@ -78,17 +78,13 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  <!-- Compliance band (charcoal on light — conspicuous, ≥14px, never hidden) -->
+  <!-- Compliance band (condensed single-paragraph disclaimer, never hidden) -->
   <div class="border-t-2 border-gold bg-warmgrey">
-    <div class="container-page py-10">
-      <div class="space-y-3 text-[14px] leading-relaxed text-charcoal">
-        <p>{COMPLIANCE.responsible}</p>
-        <p>{COMPLIANCE.licensed}</p>
-        <p>{COMPLIANCE.notLegalAdvice}</p>
-        <p>{COMPLIANCE.contingencyCosts}</p>
-        <p>{COMPLIANCE.pastResults}</p>
-      </div>
-      <p class="mt-6 text-[14px] text-charcoal/80">
+    <div class="container-page py-8">
+      <p class="text-[13px] leading-relaxed text-charcoal/80">
+        {COMPLIANCE.footerCondensed}
+      </p>
+      <p class="mt-4 text-[13px] text-charcoal/70">
         &copy; {year}, {SITE.name}. All rights reserved.
       </p>
     </div>

@@ -1,5 +1,5 @@
 /**
- * Practice areas — shared by the Home grid and the Practice Areas page.
+ * Practice areas: shown in the Home page grid.
  * Editable. The firm is full-service; Personal Injury leads the list.
  *
  * Fee messaging (Texas Disciplinary Rules Part VII, §5 of the README):
@@ -50,7 +50,7 @@ export const PRACTICES: Practice[] = [
     blurb:
       'Car & truck collisions, 18-wheeler crashes, premises liability, and product injuries.',
     detail:
-      'If you have been hurt because of someone else’s negligence, you deserve straightforward answers and a lawyer who handles your case personally. The firm helps injured people and their families pursue fair compensation for medical bills, lost income, and the disruption an injury causes — and keeps you in the loop, in plain language, the whole way through.',
+      'If you have been hurt because of someone else’s negligence, you deserve straightforward answers and a lawyer who handles your case personally. The firm helps injured people and their families pursue fair compensation for medical bills, lost income, and the disruption an injury causes, and keeps you in the loop, in plain language, the whole way through.',
     points: [
       'Car and truck collisions',
       '18-wheeler and commercial fleet crashes',
@@ -76,9 +76,9 @@ export const PRACTICES: Practice[] = [
     icon: 'insurance',
     contingencyOptional: true,
     blurb:
-      'Fighting denied, delayed, and underpaid claims — including bad-faith disputes.',
+      'Fighting denied, delayed, and underpaid claims, including bad-faith disputes.',
     detail:
-      'Insurance companies do not always pay what they owe. The firm represents policyholders in first-party property claims and bad-faith disputes — the denied, delayed, and underpaid claims that leave families and businesses holding the bill. Depending on the matter, these cases are handled on a contingency-fee or hourly basis, and the firm will explain which arrangement applies before you commit.',
+      'Insurance companies do not always pay what they owe. The firm represents policyholders in first-party property claims and bad-faith disputes: the denied, delayed, and underpaid claims that leave families and businesses holding the bill. Depending on the matter, these cases are handled on a contingency-fee or hourly basis, and the firm will explain which arrangement applies before you commit.',
     points: [
       'Denied and underpaid first-party property claims',
       'Delayed claim handling',
@@ -104,7 +104,7 @@ export const PRACTICES: Practice[] = [
     title: 'Contract Drafting & Review',
     icon: 'contract',
     blurb:
-      'Clear contracts drafted and reviewed before you sign — not after.',
+      'Clear contracts drafted and reviewed before you sign, not after.',
     detail:
       'A contract is easiest to fix before it is signed. The firm drafts and reviews agreements for individuals and small businesses, translating dense terms into plain language and flagging the risks that matter to you. This work is handled on a flat or hourly basis, quoted before the work begins.',
   },
@@ -130,7 +130,7 @@ export const PRACTICES: Practice[] = [
     blurb:
       'Defense against debt-collection suits and consumer-protection matters.',
     detail:
-      'Being sued by a debt collector is stressful, but you have rights — and you do not have to face it alone. The firm defends individuals against debt-collection lawsuits and handles consumer-protection matters, working toward a resolution that fits your circumstances. These matters are handled on a flat or hourly basis.',
+      'Being sued by a debt collector is stressful, but you have rights, and you do not have to face it alone. The firm defends individuals against debt-collection lawsuits and handles consumer-protection matters, working toward a resolution that fits your circumstances. These matters are handled on a flat or hourly basis.',
   },
   {
     slug: 'estate-planning',
@@ -138,7 +138,7 @@ export const PRACTICES: Practice[] = [
     icon: 'estate',
     blurb: 'Wills and foundational planning to protect your family’s future.',
     detail:
-      'Thoughtful planning gives your family clarity and reduces stress later. The firm helps individuals and families put practical documents in place — wills and related foundational planning — tailored to your situation. Consultations are available; fees are typically flat or hourly depending on the work.',
+      'Thoughtful planning gives your family clarity and reduces stress later. The firm helps individuals and families put practical documents in place, such as wills and related foundational planning, tailored to your situation. Consultations are available; fees are typically flat or hourly depending on the work.',
   },
   {
     slug: 'probate-guardianship',

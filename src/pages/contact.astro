@@ -23,12 +23,12 @@ const description =
         <!-- ============================ FORM ============================ -->
         <div>
           <form id="contact-form" class="space-y-6" novalidate>
-            <!-- Web3Forms access key — FILL in src/consts.ts -->
+            <!-- Web3Forms access key: FILL in src/consts.ts -->
             <input type="hidden" name="access_key" value={SITE.web3formsKey} />
             <input
               type="hidden"
               name="subject"
-              value="New consultation request — mjbrennan.com"
+              value="New consultation request from mjbrennan.com"
             />
             <input type="hidden" name="from_name" value={SITE.name} />
 
@@ -97,7 +97,7 @@ const description =
                 class="mt-2 w-full rounded border border-warmgrey bg-white px-4 py-3 text-charcoal focus:border-navy focus:outline-none"
               ></textarea>
               <p class="mt-2 text-xs text-charcoal/70">
-                Please keep it general — do not include confidential details.
+                Please keep it general, and do not include confidential details.
               </p>
             </div>
 
@@ -127,7 +127,7 @@ const description =
               class="hidden rounded border-l-4 border-gold bg-warmgrey/70 p-4 text-sm text-charcoal"
               role="status"
             >
-              Thank you — your message has been sent. We’ll be in touch soon.
+              Thank you. Your message has been sent. We’ll be in touch soon.
             </p>
             <p
               id="form-error"
@@ -159,7 +159,7 @@ const description =
               </li>
               <li>
                 <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Office</span>
-                <span class="text-charcoal">Houston, TX — by appointment</span>
+                <span class="text-charcoal">Houston, TX (by appointment)</span>
               </li>
               <li>
                 <span class="block text-xs font-semibold uppercase tracking-wide text-charcoal/60">Service area</span>

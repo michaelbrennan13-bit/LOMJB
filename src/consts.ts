@@ -17,7 +17,7 @@ export const SITE = {
 
   email: 'michael@mjbrennan.com',
 
-  // Office (virtual / by appointment — do not render a live map pin).
+  // Office (virtual / by appointment; do not render a live map pin).
   address: {
     street: '11757 Katy Fwy #1300',
     city: 'Houston',
@@ -30,15 +30,15 @@ export const SITE = {
 
   barNumber: '24125746',
 
-  // Web3Forms access key (https://web3forms.com) — powers the contact form.
+  // Web3Forms access key (https://web3forms.com); powers the contact form.
   web3formsKey: 'ea9b5e51-61bc-4745-a3e9-4111a12d318f',
 } as const;
 
-/** Compliance / disclaimer strings — Texas Disciplinary Rules Part VII. */
+/** Compliance / disclaimer strings: Texas Disciplinary Rules Part VII. */
 export const COMPLIANCE = {
   responsible:
     'Michael J. Brennan is responsible for the content of this website. Principal office: Houston, Texas.',
-  licensed: `Licensed in Texas — State Bar No. ${SITE.barNumber}.`,
+  licensed: `Licensed in Texas, State Bar No. ${SITE.barNumber}.`,
   notLegalAdvice:
     'This website is for general information only and is not legal advice. Contacting the firm or submitting the contact form does not create an attorney-client relationship; please do not send confidential information through it. Past results do not guarantee, warrant, or predict future outcomes.',
   contingencyCosts:
@@ -49,12 +49,11 @@ export const COMPLIANCE = {
     'Past results do not guarantee, warrant, or predict future outcomes.',
   // Condensed single-paragraph disclaimer shown in the site footer (every page).
   footerCondensed:
-    'Michael J. Brennan is responsible for this website; principal office in Houston, Texas. Licensed in Texas, State Bar No. 24125746. This site is general information, not legal advice, and using it or submitting the contact form does not create an attorney-client relationship — please do not send confidential information. Personal injury matters are handled on a contingency-fee basis: no attorney’s fee unless we obtain a recovery, though clients may be responsible for court costs and case expenses. Past results do not guarantee, warrant, or predict future outcomes.',
+    'Michael J. Brennan is responsible for this website; principal office in Houston, Texas. Licensed in Texas, State Bar No. 24125746. This site is general information, not legal advice, and using it or submitting the contact form does not create an attorney-client relationship. Please do not send confidential information. Personal injury matters are handled on a contingency-fee basis: no attorney’s fee unless we obtain a recovery, though clients may be responsible for court costs and case expenses. Past results do not guarantee, warrant, or predict future outcomes.',
 } as const;
 
 export const NAV = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Practice Areas', href: '/practice-areas' },
   { label: 'Contact', href: '/contact' },
 ] as const;

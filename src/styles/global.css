@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/*  Brand system — Law Office of Michael J. Brennan, PLLC              */
+/*  Brand system: Law Office of Michael J. Brennan, PLLC              */
 /*  Tokens are exposed to Tailwind v4 as bg-navy, text-burgundy, etc.  */
 /* ------------------------------------------------------------------ */
 @theme {
   --color-navy: #1B2A4A;      /* primary */
   --color-burgundy: #6E2639;  /* accent */
-  --color-gold: #CBB067;      /* champagne gold — rules/dividers/seal accents only */
+  --color-gold: #CBB067;      /* champagne gold: rules/dividers/seal accents only */
   --color-warmgrey: #E6E6E6;  /* section backgrounds */
   --color-charcoal: #26262A;  /* body text */
 
@@ -155,7 +155,7 @@
   }
 }
 
-/* Skip link — visible only on focus */
+/* Skip link: visible only on focus */
 .skip-link {
   position: absolute;
   left: -9999px;

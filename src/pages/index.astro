@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PracticeIcon from '../components/PracticeIcon.astro';
-import { SITE, COMPLIANCE } from '../consts';
+import { SITE } from '../consts';
 import { PRACTICES } from '../data/practices';
 
 const title =
   'Fort Bend County Personal Injury Attorney | Law Office of Michael J. Brennan';
 const description =
-  'Full-service Texas law firm led by personal injury, serving Fort Bend County and Greater Houston. Work directly with your attorney — a former defense-side litigator now representing plaintiffs. Free consultation.';
+  'Full-service Texas law firm led by personal injury, serving Fort Bend County and Greater Houston. Work directly with your attorney, a former defense-side litigator now representing plaintiffs. Free consultation.';
 ---
 
 <Layout title={title} description={description} path="/">
@@ -28,7 +28,7 @@ const description =
           When it matters most, you deserve a lawyer who picks up the phone.
         </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal/90">
-          Straight answers, a familiar face, and deep Fort Bend roots. You work
+          Straight answers, a familiar face, and deep Houston roots. You work
           directly with your attorney, from the first call to the last.
         </p>
         <div class="mt-9 flex flex-wrap gap-4">
@@ -52,7 +52,7 @@ const description =
         <p class="text-xl leading-relaxed md:text-2xl">
           Legal trouble is stressful enough without a lawyer who talks over your
           head or hands you off. Here you work with someone who picks up the
-          phone, explains things in plain language, and genuinely wants to help —
+          phone, explains things in plain language, and genuinely wants to help,
           whether you’re planning ahead or facing something hard. Just a
           Houston-area neighbor, ready for whatever life throws your way.
         </p>
@@ -61,7 +61,7 @@ const description =
   </section>
 
   <!-- ======================= PRACTICE AREAS ======================= -->
-  <section class="bg-white">
+  <section id="practice-areas" class="bg-white">
     <div class="container-page py-20">
       <div class="max-w-2xl">
         <p class="eyebrow">Practice Areas</p>
@@ -74,23 +74,17 @@ const description =
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           PRACTICES.map((p) => (
-            <a
-              href={`/practice-areas#${p.slug}`}
-              class="group flex flex-col rounded-lg border border-warmgrey bg-white p-7 transition-shadow hover:shadow-lg"
-            >
+            <div class="flex flex-col rounded-lg border border-warmgrey bg-white p-7">
               <div class="flex items-center gap-3">
                 <PracticeIcon name={p.icon} />
               </div>
-              <h3 class="mt-5 text-xl font-semibold text-navy group-hover:text-burgundy">
+              <h3 class="mt-5 text-xl font-semibold text-navy">
                 {p.title}
               </h3>
               <p class="mt-3 text-[15px] leading-relaxed text-charcoal/85">
                 {p.blurb}
               </p>
-              <span class="mt-5 text-sm font-semibold text-burgundy">
-                Learn more →
-              </span>
-            </a>
+            </div>
           ))
         }
       </div>
@@ -112,12 +106,12 @@ const description =
               d: 'Your case is handled by the attorney you hired. Call and you reach the person doing the work.',
             },
             {
-              t: 'Local court knowledge',
-              d: 'Familiarity with Fort Bend and Harris County courts and the way matters actually move here.',
+              t: 'Familiarity with Texas courts',
+              d: 'A working knowledge of Texas courts and the way matters actually move through them.',
             },
             {
               t: 'Clear, straightforward fees',
-              d: 'Plain explanations of how fees work before you commit — no surprises, no runaround.',
+              d: 'Plain explanations of how fees work before you commit. No surprises, no runaround.',
             },
           ].map((v) => (
             <div class="border-t-2 border-gold bg-white p-8">
@@ -130,26 +124,12 @@ const description =
     </div>
   </section>
 
-  <!-- ======================= CONTINGENCY BAND ======================= -->
-  <section class="bg-white">
-    <div class="container-page py-16">
-      <div class="mx-auto max-w-3xl border-l-4 border-gold bg-warmgrey/60 p-8 md:p-10">
-        <p class="text-2xl font-semibold text-navy md:text-3xl">
-          No attorney’s fee unless we obtain a recovery for you.
-        </p>
-        <p class="mt-4 text-[15px] leading-relaxed text-charcoal/90">
-          {COMPLIANCE.contingencyCosts}
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================ CTA ============================ -->
   <section class="bg-navy text-white">
     <div class="container-page flex flex-col items-start gap-6 py-16 md:flex-row md:items-center md:justify-between">
       <div>
         <h2 class="text-3xl font-bold text-white md:text-4xl">
-          Talk through your situation — free and confidential to start.
+          Talk through your situation, free and confidential to start.
         </h2>
         <p class="mt-3 text-white/85">{SITE.tagline}</p>
       </div>

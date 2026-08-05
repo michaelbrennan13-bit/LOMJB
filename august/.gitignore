@@ -1,0 +1,30 @@
+# Secrets — never sync these.
+.env
+.env.*
+!.env.example
+.tokens.json
+tools/clio/.tokens.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Scheduled-run logs
+ops/scheduled/last-run.log
+
+# NOTE on client data:
+# Matter files (matters/<slug>/) hold real, privileged client data. They ARE
+# tracked and DO sync — that is deliberate: this repo is August's memory, and
+# Michael works matters from Cowork on his phone against the GitHub copy.
+# Therefore the GitHub repository MUST be PRIVATE. If it were ever made public,
+# add `matters/` (except `matters/_TEMPLATE/` and `matters/README.md`),
+# `intake/`, and `research/memos/` here immediately.
